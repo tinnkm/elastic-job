@@ -42,6 +42,7 @@ public abstract class EnterpriseCountStrategy<T> implements SimpleJob {
         return mongoTemplate.find(query, GenericSuperclassUtil.<T>getActualTypeArgument(this.getClass()));
     }
 
+    // 可以把注入MongoTemplate改为注入ApplicationContext这样的复用性更好
     public void setMongoTemplate(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }
