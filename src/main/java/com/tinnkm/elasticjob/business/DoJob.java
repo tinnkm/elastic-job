@@ -19,9 +19,9 @@ public class DoJob extends ItemRegionStrategy<Enterprise,Long> {
 
     @Override
     protected void handle(List<Enterprise> enterprises, String JobParameter, String shardingParameter) {
-        System.out.println("----------------job done---------------");
-        // 具体的业务实现
-        enterprises.forEach(enterprise -> System.out.println(enterprise.getEntId()));
+//        System.out.println("----------------job done---------------");
+//        // 具体的业务实现
+//        enterprises.forEach(enterprise -> System.out.println(enterprise.getEntId()));
     }
 
     @Override

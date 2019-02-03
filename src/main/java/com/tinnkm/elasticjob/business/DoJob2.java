@@ -18,8 +18,11 @@ import java.util.List;
 public class DoJob2 extends EnterpriseCountStrategy<Enterprise> {
 
     @Override
-    protected void handle(List<Enterprise> enterprises, String JobParameter, String shardingParameter) {
+    protected void handle(List<Enterprise> enterprises, String jobParameter, String shardingParameter) {
         System.out.println("----------------job2 done---------------");
+        System.out.println("------------------job2的参数----------------------");
+        System.out.println(jobParameter);
+        System.out.println("------------------job2的参数----------------------");
         // 具体的业务实现
         enterprises.forEach(enterprise -> System.out.println(enterprise.getEntId()));
     }
