@@ -315,4 +315,20 @@ public class ZKUtils {
     public Object getRawCache(String cachePath) {
         return this.caches.get(cachePath + "/");
     }
+
+    /**
+     * 切换命名空间
+     * @param namespace
+     * @return
+     */
+    public boolean usingNamespace(String namespace){
+        CuratorFramework curatorFramework = threadLocal.get();
+        CuratorFramework newCuratorFramework = curatorFramework.usingNamespace(namespace);
+        if (null == newCuratorFramework){
+            log.warn("can't find namespace will use old curatorFramework");
+            return false;
+        }
+        threadLocal.set(curatorFramework);
+        return true;
+    }
 }
