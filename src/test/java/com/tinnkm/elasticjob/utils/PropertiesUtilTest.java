@@ -12,6 +12,10 @@ public class PropertiesUtilTest  extends ElasticJobApplicationTests {
     @Test
     public void testConfig(){
         String config = PropertiesUtil.getConfig("elastic-job.serverList");
+        ZKUtils zkUtils = new ZKUtils(config, "");
+        zkUtils.createNamespace("tinnkm");
+        zkUtils.usingNamespace("tinnkm");
+        zkUtils.persist("/tinnkms","xxx");
         log.info(config);
     }
 }

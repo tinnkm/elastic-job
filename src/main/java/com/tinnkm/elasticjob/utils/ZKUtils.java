@@ -328,7 +328,23 @@ public class ZKUtils {
             log.warn("can't find namespace will use old curatorFramework");
             return false;
         }
-        threadLocal.set(curatorFramework);
+        threadLocal.set(newCuratorFramework);
+        return true;
+    }
+
+    /**
+     * 创建命名空间
+     * @param namespace
+     * @return
+     */
+    public boolean createNamespace(String namespace){
+        CuratorFramework curatorFramework = threadLocal.get();
+        try {
+            curatorFramework.createContainers(namespace);
+        } catch (Exception e) {
+            log.error("create namespace failed",e);
+            return false;
+        }
         return true;
     }
 }
